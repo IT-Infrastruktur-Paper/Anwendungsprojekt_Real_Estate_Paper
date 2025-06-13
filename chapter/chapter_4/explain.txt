@@ -1,0 +1,64 @@
+1. Daten laden und erste Exploration
+Funktion: load_and_explore_data
+Was passiert?
+Eine Excel-Datei wird eingelesen.
+Es werden grundlegende Informationen ausgegeben: Form des Datensatzes, Spaltennamen, erste Zeilen, fehlende Werte, Basisstatistiken.
+Ziel: Überblick über die Daten und deren Qualität bekommen.
+
+2. Datenvorverarbeitung (Preprocessing)
+Funktion: enhanced_preprocessing
+Was passiert?
+Zielspalte (price_per_sqm) wird identifiziert.
+Zeilen mit fehlendem Zielwert werden entfernt.
+Ausreißer in der Zielspalte werden mit einer konservativen IQR-Methode entfernt.
+Datetime-Spalten werden in Jahr, Monat, Tag, Wochentag zerlegt.
+Kategorische Variablen werden je nach Kardinalität entweder one-hot- oder label-encoded.
+Numerische Spalten mit fehlenden Werten werden mit dem Median aufgefüllt.
+Nicht-numerische Spalten werden konvertiert oder entfernt.
+Ziel: Die Daten in ein sauberes, numerisches Format bringen, das für Machine Learning geeignet ist.
+
+3. Feature Selection (Merkmalsauswahl)
+Funktion: smart_feature_selection
+Was passiert?
+Features mit sehr vielen einzigartigen Werten (z.B. IDs) werden entfernt.
+Es wird die Korrelation jedes Features mit der Zielvariable berechnet.
+Features mit geringer Korrelation (<0.05) werden entfernt.
+Hoch korrelierte Features untereinander (>0.8) werden reduziert, um Multikollinearität zu vermeiden.
+Falls noch zu viele Features übrig sind, wird mit SelectKBest auf die wichtigsten reduziert.
+Ziel: Nur die wichtigsten und nicht-redundanten Features für das Modellieren behalten.
+
+4. Train-Test-Split & Skalierung
+Im main-Block:
+Die Daten werden in Trainings- und Testdaten (80/20) aufgeteilt.
+Features werden mit StandardScaler standardisiert (Mittelwert 0, Varianz 1).
+Ziel: Modelle sollen auf generalisierbarem, skaliertem Datensatz trainiert werden.
+
+5. Modelltraining
+Funktion: train_improved_models
+Was passiert?
+Es werden vier Modelle trainiert: Ridge Regression, Elastic Net, Random Forest, Gradient Boosting.
+Für jedes Modell wird eine 5-fache Cross-Validation durchgeführt (R² als Metrik).
+Modelle werden auf den Trainingsdaten trainiert und auf den Testdaten evaluiert (MSE, RMSE, MAE, R²).
+Ziel: Vergleich verschiedener Modelltypen und Auswahl des besten Modells.
+
+6. Visualisierung
+Funktion: create_enhanced_plots
+Was passiert?
+Es werden verschiedene Plots erstellt: Modellvergleich, Actual vs. Predicted, Residuen, Feature Importance, Fehlerverteilung, Prognoseintervalle.
+Die Plots werden als PNG gespeichert.
+Ziel: Ergebnisse anschaulich machen und Modellgüte visuell überprüfen.
+
+7. Modellspeicherung & Feature Importance
+Im main-Block:
+Das beste Modell und der Scaler werden mit joblib gespeichert.
+Die wichtigsten Features für das beste Modell werden ausgegeben.
+Ziel: Modell für spätere Nutzung sichern und interpretierbar machen.
+Data Modelling Schritte im Überblick
+Datenbereinigung & -vorverarbeitung: Umgang mit Ausreißern, fehlenden Werten, Kategorisierung, Feature Engineering.
+Feature Selection: Auswahl der wichtigsten, nicht-redundanten Merkmale.
+Train-Test-Split & Skalierung: Vorbereitung für maschinelles Lernen.
+Modelltraining & -vergleich: Verschiedene Algorithmen, Cross-Validation, Auswahl nach Performance.
+Evaluation & Visualisierung: Metriken, Plots, Residuenanalyse.
+Modellspeicherung & Interpretation: Persistenz und Nachvollziehbarkeit.
+Alle Schritte sind im Code modular als Funktionen umgesetzt und werden im main()-Block orchestriert.
+Für Details zu einzelnen Funktionen siehe z.B. enhanced_preprocessing, smart_feature_selection, train_improved_models.

@@ -1,10 +1,21 @@
 \textbf{Business Understanding}
+In der ersten Phase hat sich das Projektteam folgendes Ziel in Form einer Forschungsfrage gesetzt: "Ist der Deutschlandatlas als Datenquelle geeignet, um Immobilienkaufpreise in Deutschland zu ermitteln und vorherzusagen?"
+Das Ziel dieser Arbeit ist es, ein KI-gestütztes Vorhersagemodell für Immobilienpreise zu entwickeln, das auf den im Deutschlandatlas verfügbaren Indikatoren basiert. Das aus dieser Arbeit resultierende Modell ist zugeschnitten auf relevante Stakeholder wie Immobilienunternehmen oder -investoren.
 
 \textbf{Data Understanding}
+In der Phase des Data Understanding hat das Projektteam die im Deutschlandatlas verfügbaren Daten gesichtet. Dabei wurde festgestellt, dass der Deutschlandatlas verschiedenste sozioökonomischen Faktoren und regionalen Kennzahlen bereitstellt, die potenziell für die Modellierung eines Vorhersagemodells für Immobilienpreise relevant sind. Des Weiteren wurde geprüft ob die im Deutschland bereitgestellten Daten genügen oder ob noch weitere externe Datenquellen hinzugezogen werden müssen. Erste explorative Analysen haben eine erkennbare Verbindung zwischen den Atlasdaten und Immobilienpreisen aufgezeigt, jedoch genau so Datenlücken und mögliche Verzerrungen identifiziert.
 
 \textbf{Data Preparation}
+In der nächsten Phase wurden die Daten des Deutschlandatlas aufbereitet und durch drei externe Datenquellen erweitert:
+\begin{itemize}
+    \item Verwaltungsgebiete vom Bundesamt für Kartographie und Geodäsie
+    \item Übersetzungsaten für ARS und AGS zu Postleitzahlen vom Statistischen Bundesamt
+    \item Immobilienpreisdaten von Engel & Völkers
+\end{itemize}
+
 
 \textbf{Modeling}
+Beim modellieren der Daten und erstellen des Vorhersagemodells wurde ein zweistufiger Ansatz verfolgt. Zunächst wurde ein Regressionsmodell entwickelt, das die Immobilienpreise auf Basis der Deutschlandatlas-Daten vorhersagt. Anschließend wurde ein Klassifikationsmodell erstellt, das die Immobilien in verschiedene Preiskategorien einteilt. Beide Modelle wurden mit den aufbereiteten Daten trainiert und validiert.
 
 \textbf{Evaluation}
 
@@ -12,31 +23,7 @@
 
 
 
-
-
-Business Understanding
-
-    Zieldefinition: Bewertung, ob der Deutschlandatlas als Datenquelle geeignet ist, um Immobilienkaufpreise in Deutschland zu ermitteln und vorherzusagen.
-
-    Ableitung konkreter Analyseziele: Entwicklung eines Vorhersagemodells für Immobilienpreise auf Basis der im Deutschlandatlas verfügbaren Indikatoren.
-
-    Identifikation relevanter Stakeholder (z.B. Immobilienunternehmen, Investoren, Politik).
-
-Data Understanding
-
-    Sichtung und Analyse der im Deutschlandatlas bereitgestellten Daten (z.B. sozioökonomische Indikatoren, regionale Kennzahlen).
-
-    Überprüfung der Datenverfügbarkeit bezüglich Immobilienkaufpreisen und potenziell relevanter Einflussfaktoren.
-
-    Erste Exploration: Identifizieren von Korrelationen zwischen Atlasdaten und Immobilienpreisen.
-
-    Erkennen von Datenlücken oder potenziellen Verzerrungen.
-
 Data Preparation
-
-    Auswahl relevanter Variablen aus dem Deutschlandatlas (z.B. Einkommen, Arbeitslosenquote, Infrastruktur).
-
-    Ergänzung durch externe Quellen, falls direkte Immobilienpreisdaten fehlen.
 
     Datenbereinigung: Umgang mit fehlenden Werten, Ausreißern und Inkonsistenzen.
 
