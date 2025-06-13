@@ -12,70 +12,22 @@ In der nächsten Phase wurden die Daten des Deutschlandatlas aufbereitet und dur
     \item Übersetzungsaten für ARS und AGS zu Postleitzahlen vom Statistischen Bundesamt
     \item Immobilienpreisdaten von Engel & Völkers
 \end{itemize}
+Diese Datenquellen wurden ausgewählt, um die regionalen Unterschiede in den Immobilienpreisen besser abzubilden und die Vorhersagegenauigkeit des Modells zu erhöhen. Alle Daten wurden bereinigt, transformiert und aggregiert. Dabei wurde auch darauf geachtet, dass alle Daten auf alle für uns relevanten Verwaltungsgebiete angewendet werden können. Das Projektteam hat sich dabei auf Gemeinde-, Kreis- und PLZ-Ebene begrenzt.
 
 
 \textbf{Modeling}
-Beim modellieren der Daten und erstellen des Vorhersagemodells wurde ein zweistufiger Ansatz verfolgt. Zunächst wurde ein Regressionsmodell entwickelt, das die Immobilienpreise auf Basis der Deutschlandatlas-Daten vorhersagt. Anschließend wurde ein Klassifikationsmodell erstellt, das die Immobilien in verschiedene Preiskategorien einteilt. Beide Modelle wurden mit den aufbereiteten Daten trainiert und validiert.
+Um das Bestmögliche Vorhersagemodell zu entwickeln, wurden verschiedene Regressionsmodelle getestet. Dabei kamen sowohl klassische Regressionsmethoden wie Ridge Regression und Elastic Net als auch moderne Ensemble-Methoden wie Random Forest und Gradient Boosting zum Einsatz. Jedes Modell wurde auf Basis der aufbereiteten Daten trainiert und mittels Cross-Validation bewertet, um die Robustheit der Vorhersagen zu gewährleisten.
 
 \textbf{Evaluation}
+Um zu prüfen, ob die entwickelten Modelle den Anforderungen der Forschungsfrage gerecht werden, wurden verschiedene Metriken zur Bewertung der Modellgüte herangezogen (Zitat Evaluation Metrics ...):
+\begin{itemize}
+    \item Root Mean Squared Error (RMSE) zur Messung der durchschnittlichen Abweichung der Vorhersagen von den tatsächlichen Immobilienpreisen.
+    \item Mean Absolute Error (MAE) zur Bewertung der durchschnittlichen absoluten Fehler.
+    \item R²-Score zur Bestimmung der erklärten Varianz durch das Modell.
+    \item Mittelwert und Standardabweichung der Vorhersagen, um die Stabilität und Konsistenz der Modelle zu überprüfen.
+\end{itemize}
+
+Die Modelle wurden daraufhin analysiert, um die wichtigsten Einflussfaktoren auf die Immobilienpreise zu identifizieren.
 
 \textbf{Deployment}
-
-
-
-Data Preparation
-
-    Datenbereinigung: Umgang mit fehlenden Werten, Ausreißern und Inkonsistenzen.
-
-    Transformation und Aggregation der Daten auf die gewünschte regionale Ebene (z.B. Landkreise, Städte).
-
-Modeling
-
-    Auswahl geeigneter Modellierungsmethoden (z.B. lineare Regression, Random Forest).
-
-    Training der Modelle mit den aufbereiteten Daten.
-
-    Feature Engineering: Auswahl und Kombination von Variablen, die Immobilienpreise beeinflussen könnten.
-
-    Durchführung von Modellvalidierungen (z.B. Kreuzvalidierung).
-
-    Im Code in improved_price_prediction.py werden folgende Modellierungsmethoden für die Preisvorhersage verwendet:
-
-Ridge Regression
-
-Regularisierte lineare Regression (L2-Regularisierung).
-Implementiert mit Ridge aus sklearn.linear_model.
-Elastic Net
-
-Kombination aus L1- und L2-Regularisierung.
-Implementiert mit ElasticNet aus sklearn.linear_model.
-Random Forest Regressor
-
-Ensemble-Methode auf Basis von Entscheidungsbäumen (Bagging).
-Implementiert mit RandomForestRegressor aus sklearn.ensemble.
-Gradient Boosting Regressor
-
-Ensemble-Methode, die schwache Modelle sequenziell zu einem starken Modell kombiniert (Boosting).
-Implementiert mit GradientBoostingRegressor aus sklearn.ensemble.
-Alle Modelle werden trainiert, per Cross-Validation bewertet und anhand ihrer Performance verglichen.
-Siehe dazu die Funktion train_improved_models.
-
-Evaluation
-
-    Bewertung der Modellgüte anhand geeigneter Metriken (z.B. RMSE, R²).
-
-    Überprüfung, ob die Modelle auf Basis der Deutschlandatlas-Daten verlässliche Vorhersagen ermöglichen.
-
-    Analyse der wichtigsten Einflussfaktoren im Modell.
-
-    Reflexion, inwieweit die Forschungsfrage beantwortet werden kann.
-
-Deployment
-
-    Präsentation der Ergebnisse in verständlicher Form (z.B. Visualisierungen, Karten).
-
-    Diskussion der Implikationen für Praxis und Forschung.
-
-    Empfehlungen für die Nutzung des Deutschlandatlas in der Immobilienmarktanalyse.
-
-    Hinweise auf Limitationen und mögliche Weiterentwicklungen.
+Um das Ergebnis der Arbeit zu visualisieren wurden die Ergebnisse in verständlicher Form aufbereitet. Im ersten Schritt wurden die Vorhersagen der Immobilienpreise auf einer Karte visualisiert, um regionale Unterschiede und Trends zu verdeutlichen. Im zweiten Schritt wurden die wichtigsten Einflussfaktoren auf die Immobilienpreise in Form von Diagrammen und Tabellen dargestellt. (Diese Ergebnisse wurden in einem Bericht zusammengefasst, der die Implikationen für Praxis und Forschung diskutiert und Empfehlungen für die Nutzung des Deutschlandatlas in der Immobilienmarktanalyse gibt.)

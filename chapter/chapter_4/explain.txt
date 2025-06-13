@@ -1,3 +1,30 @@
+# Verwendete Modelle:
+Ridge Regression
+
+Regularisierte lineare Regression (L2-Regularisierung).
+Implementiert mit Ridge aus sklearn.linear_model.
+
+Elastic Net
+
+Kombination aus L1- und L2-Regularisierung.
+Implementiert mit ElasticNet aus sklearn.linear_model.
+
+Random Forest Regressor
+
+Ensemble-Methode auf Basis von Entscheidungsbäumen (Bagging).
+Implementiert mit RandomForestRegressor aus sklearn.ensemble.
+
+Gradient Boosting Regressor
+
+Ensemble-Methode, die schwache Modelle sequenziell zu einem starken Modell kombiniert (Boosting).
+Implementiert mit GradientBoostingRegressor aus sklearn.ensemble.
+Alle Modelle werden trainiert, per Cross-Validation bewertet und anhand ihrer Performance verglichen.
+Siehe dazu die Funktion train_improved_models.
+
+
+
+# Steps:
+
 1. Daten laden und erste Exploration
 Funktion: load_and_explore_data
 Was passiert?
