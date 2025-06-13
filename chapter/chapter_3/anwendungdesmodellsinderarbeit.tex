@@ -39,6 +39,27 @@ Modeling
 
     Durchführung von Modellvalidierungen (z.B. Kreuzvalidierung).
 
+    Im Code in improved_price_prediction.py werden folgende Modellierungsmethoden für die Preisvorhersage verwendet:
+
+Ridge Regression
+
+Regularisierte lineare Regression (L2-Regularisierung).
+Implementiert mit Ridge aus sklearn.linear_model.
+Elastic Net
+
+Kombination aus L1- und L2-Regularisierung.
+Implementiert mit ElasticNet aus sklearn.linear_model.
+Random Forest Regressor
+
+Ensemble-Methode auf Basis von Entscheidungsbäumen (Bagging).
+Implementiert mit RandomForestRegressor aus sklearn.ensemble.
+Gradient Boosting Regressor
+
+Ensemble-Methode, die schwache Modelle sequenziell zu einem starken Modell kombiniert (Boosting).
+Implementiert mit GradientBoostingRegressor aus sklearn.ensemble.
+Alle Modelle werden trainiert, per Cross-Validation bewertet und anhand ihrer Performance verglichen.
+Siehe dazu die Funktion train_improved_models.
+
 Evaluation
 
     Bewertung der Modellgüte anhand geeigneter Metriken (z.B. RMSE, R²).
