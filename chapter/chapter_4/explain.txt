@@ -80,6 +80,8 @@ Im main-Block:
 Das beste Modell und der Scaler werden mit joblib gespeichert.
 Die wichtigsten Features für das beste Modell werden ausgegeben.
 Ziel: Modell für spätere Nutzung sichern und interpretierbar machen.
+
+
 Data Modelling Schritte im Überblick
 Datenbereinigung & -vorverarbeitung: Umgang mit Ausreißern, fehlenden Werten, Kategorisierung, Feature Engineering.
 Feature Selection: Auswahl der wichtigsten, nicht-redundanten Merkmale.

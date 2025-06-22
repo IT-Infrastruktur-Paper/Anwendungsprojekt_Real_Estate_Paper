@@ -1,6 +1,36 @@
+In diesem Abschnitt wird darauf eingegangen was getan wurde um ein geeignetes Modell zu erstellen und die wichtigsten Variablen zu identifizieren, die den Immobilienkaufpreis beeinflussen. Außerdem wird afu den damiteinhergenenden Trainingsprozess eingegangen und wie die Top-10-Variablen dargestellt werden.
+
+Nachdem die Daten in Abschnitt "Datenbeschreibung und Aufbereitung" beschrieben und aufbereitet wurden, folgt hier die eigentliche Modellierung und Analyse der Feature Importance. Ziel ist es, ein geeignetes Machine Learning (ML)-Modell zu entwickeln, das die Immobilienkaufpreise vorhersagen kann, sowie die wichtigsten Einflussfaktoren zu identifizieren.
+Der erste Schritt im Programmcode ist dabei die Definierung des Trainings- und Testdatensatzes. Hierbei wird der Datensatz in zwei Teile aufgeteilt: einen Trainingsdatensatz, der für das Training des Modells verwendet wird, und einen Testdatensatz, der zur Validierung der Modellleistung dient. Dies ist wichtig, um sicherzustellen, dass das Modell generalisierbar ist und nicht nur die Trainingsdaten auswendig lernt.
+Dazu wurde ein 80/20-Split verwendet, was bedeutet, dass 80\% der Daten für das Training und 20\% für den Test verwendet werden. Dies ist eine gängige Praxis im Machine Learning, um die Leistung des Modells auf unbekannten Daten zu überprüfen (Zitat?). Außerdem werden die Features mit StandardScaler skaliert uns standadisiert, um sicherzustellen, dass alle Variablen auf der gleichen Skala liegen. Es wurde ein Mittelwert von 0 und eine Varianz von 1 angezielt.
+
+Hier Code
+
+Der nächste Schritt ist das Modelltraining. Dies wird über die Funktion \textit{train\_improved\_models} realisiert. Dabei werden vier verschiedene Modelle trainert, um die beste Leistung zu ermitteln. Die Modelle umfassen:
 \begin{itemize}
-    \item Auswahl des ML-Modells (z.B. neuronales Netz, Random Forest)
-    \item Trainingsprozess (kurz: Hyperparameter, Trainings-/Testsplit)
-    \item Ermittlung der wichtigsten Variablen (Feature Importance)
-    \item Darstellung der Top-10-Variablen (z.B. als Tabelle oder Grafik)
+    \item Random Forest Regressor
+    \item Gradient Boosting Regressor
+    \item XGBoost Regressor
+    \item LightGBM Regressor
 \end{itemize}
+Es wurde sich dazu entschieden für jedes der Modelle eine 5-fache Cross-Validation durchzuführen und die besten Hyperparameter zu ermitteln. Dies hilft, die Leistung der Modelle zu optimieren und Überanpassung zu vermeiden. Die Ergebnisse der Modelle werden in einem DataFrame gespeichert, der die mittlere absolute Fehler (MAE) und den mittleren quadratischen Fehler (MSE) für jedes Modell enthält.
+
+
+Nach dem Modelltraining folgt die Visualisierung der Ergebnisse. Dies passiert in der Funktion \textit{create\_enhanced\_plots}, welche verschiedene Plots erstellt, um die Ergebnisse der Modelle anschaulich zu machen und die Modellgüte visuell überprüfen zu können.
+Als Plot werden ausgegeben:
+\begin{itemize}
+    \item Ein Säulendiagramm, das die mittleren absoluten Fehler (MAE) der Modelle vergleicht.
+    \item Ein Streudiagramm pro Modell, das die tatsächlichen Immobilienkaufpreise gegen die vorhergesagten Preise darstellt und die Güte der Vorhersage visualisiert.
+    \item Ein Streudiagramm, das die Residuen (Fehler) der Modelle gegen die vorhergesagten Preise zeigt, um zu überprüfen, ob die Fehler zufällig verteilt sind.
+    \item Ein Boxplot, der die Verteilung der Fehler für jedes Modell zeigt.
+    \item Ein Balkendiagramm, das die Feature Importance des besten Modells darstellt, um die wichtigsten Einflussfaktoren auf die Immobilienkaufpreise zu identifizieren.
+    \item Ein Balkendiagramm welches die Top 10 Variablen mit der höchsten Correlation zu den Immobilienkaufpreisen zeigt.
+    \item Ein Säulendiagramm das die Fehlerverteilung des besten Modells zeigt.
+    \item Ein Liniendiagramm mit Konfidenzintervallen um zu zeigen, wie gut das beste Modell die Preise vorhersagt und mit welcher Unsicherheit es das tut.
+\end{itemize}
+
+Nach der Erstellung der Plots wird das beste Modell sowie der dazugehörige Scaler mit der Bibliothek "joblib" gespeichert, um sie später für Vorhersagen verwenden zu können. 
+
+Daraufhin wird eine Feature Importance Analyse durchgeführt, um die wichtigsten Variablen zu identifizieren, die den Immobilienkaufpreis beeinflussen. Dies ist entscheidend, um zu verstehen, welche Faktoren am stärksten mit den Preisen korrelieren und somit für die Vorhersage am relevantesten sind. Die Feature Importance wird für das am besten performende Modell berechnet und in einem DataFrame gespeichert.
+
+Um Aussagen über Daten treffen zu können die 

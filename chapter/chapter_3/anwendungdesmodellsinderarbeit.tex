@@ -1,33 +1,32 @@
-\textbf{Business Understanding}
-In der ersten Phase hat sich das Projektteam folgendes Ziel in Form einer Forschungsfrage gesetzt: "Ist der Deutschlandatlas als Datenquelle geeignet, um Immobilienkaufpreise in Deutschland zu ermitteln und vorherzusagen?"
+\section*{Business Understanding}
+In der ersten Phase hat sich das Projektteam folgendes Ziel in Form einer Forschungsfrage gesetzt: \textit{"Ist der Deutschlandatlas als Datenquelle geeignet, um Immobilienkaufpreise in Deutschland zu ermitteln und vorherzusagen?"}
 Das Ziel dieser Arbeit ist es, ein KI-gestütztes Vorhersagemodell für Immobilienpreise zu entwickeln, das auf den im Deutschlandatlas verfügbaren Indikatoren basiert. Das aus dieser Arbeit resultierende Modell ist zugeschnitten auf relevante Stakeholder wie Immobilienunternehmen oder -investoren.
 
-\textbf{Data Understanding}
-In der Phase des Data Understanding hat das Projektteam die im Deutschlandatlas verfügbaren Daten gesichtet. Dabei wurde festgestellt, dass der Deutschlandatlas verschiedenste sozioökonomischen Faktoren und regionalen Kennzahlen bereitstellt, die potenziell für die Modellierung eines Vorhersagemodells für Immobilienpreise relevant sind. Des Weiteren wurde geprüft ob die im Deutschland bereitgestellten Daten genügen oder ob noch weitere externe Datenquellen hinzugezogen werden müssen. Erste explorative Analysen haben eine erkennbare Verbindung zwischen den Atlasdaten und Immobilienpreisen aufgezeigt, jedoch genau so Datenlücken und mögliche Verzerrungen identifiziert.
+\section*{Data Understanding}
+In der Phase des Data Understanding hat das Projektteam die im Deutschlandatlas verfügbaren Daten gesichtet. Dabei wurde festgestellt, dass der Deutschlandatlas verschiedenste sozioökonomische Faktoren und regionale Kennzahlen bereitstellt, die potenziell für die Modellierung eines Vorhersagemodells für Immobilienpreise relevant sind. Des Weiteren wurde geprüft, ob die im Deutschlandatlas bereitgestellten Daten genügen oder ob noch weitere externe Datenquellen hinzugezogen werden müssen. Erste explorative Analysen haben eine erkennbare Verbindung zwischen den Atlasdaten und Immobilienpreisen aufgezeigt, jedoch ebenso Datenlücken und mögliche Verzerrungen identifiziert.
 
-\textbf{Data Preparation}
+\section*{Data Preparation}
 In der nächsten Phase wurden die Daten des Deutschlandatlas aufbereitet und durch drei externe Datenquellen erweitert:
 \begin{itemize}
     \item Verwaltungsgebiete vom Bundesamt für Kartographie und Geodäsie
-    \item Übersetzungsaten für ARS und AGS zu Postleitzahlen vom Statistischen Bundesamt
-    \item Immobilienpreisdaten von Engel & Völkers
+    \item Übersetzungsdaten für ARS und AGS zu Postleitzahlen vom Statistischen Bundesamt
+    \item Immobilienpreisdaten von Engel \& Völkers
 \end{itemize}
 Diese Datenquellen wurden ausgewählt, um die regionalen Unterschiede in den Immobilienpreisen besser abzubilden und die Vorhersagegenauigkeit des Modells zu erhöhen. Alle Daten wurden bereinigt, transformiert und aggregiert. Dabei wurde auch darauf geachtet, dass alle Daten auf alle für uns relevanten Verwaltungsgebiete angewendet werden können. Das Projektteam hat sich dabei auf Gemeinde-, Kreis- und PLZ-Ebene begrenzt.
 
+\section*{Modeling}
+Um das bestmögliche Vorhersagemodell zu entwickeln, wurden verschiedene Regressionsmodelle getestet. Dabei kamen sowohl klassische Regressionsmethoden wie Ridge Regression und Elastic Net als auch moderne Ensemble-Methoden wie Random Forest und Gradient Boosting zum Einsatz. Jedes Modell wurde auf Basis der aufbereiteten Daten trainiert und mittels Cross-Validation bewertet, um die Robustheit der Vorhersagen zu gewährleisten.
 
-\textbf{Modeling}
-Um das Bestmögliche Vorhersagemodell zu entwickeln, wurden verschiedene Regressionsmodelle getestet. Dabei kamen sowohl klassische Regressionsmethoden wie Ridge Regression und Elastic Net als auch moderne Ensemble-Methoden wie Random Forest und Gradient Boosting zum Einsatz. Jedes Modell wurde auf Basis der aufbereiteten Daten trainiert und mittels Cross-Validation bewertet, um die Robustheit der Vorhersagen zu gewährleisten.
-
-\textbf{Evaluation}
+\section*{Evaluation}
 Um zu prüfen, ob die entwickelten Modelle den Anforderungen der Forschungsfrage gerecht werden, wurden verschiedene Metriken zur Bewertung der Modellgüte herangezogen (Zitat Evaluation Metrics ...):
 \begin{itemize}
     \item Root Mean Squared Error (RMSE) zur Messung der durchschnittlichen Abweichung der Vorhersagen von den tatsächlichen Immobilienpreisen.
     \item Mean Absolute Error (MAE) zur Bewertung der durchschnittlichen absoluten Fehler.
-    \item R²-Score zur Bestimmung der erklärten Varianz durch das Modell.
+    \item R\textsuperscript{2}-Score zur Bestimmung der erklärten Varianz durch das Modell.
     \item Mittelwert und Standardabweichung der Vorhersagen, um die Stabilität und Konsistenz der Modelle zu überprüfen.
 \end{itemize}
 
 Die Modelle wurden daraufhin analysiert, um die wichtigsten Einflussfaktoren auf die Immobilienpreise zu identifizieren.
 
-\textbf{Deployment}
-Um das Ergebnis der Arbeit zu visualisieren wurden die Ergebnisse in verständlicher Form aufbereitet. Im ersten Schritt wurden die Vorhersagen der Immobilienpreise auf einer Karte visualisiert, um regionale Unterschiede und Trends zu verdeutlichen. Im zweiten Schritt wurden die wichtigsten Einflussfaktoren auf die Immobilienpreise in Form von Diagrammen und Tabellen dargestellt. (Diese Ergebnisse wurden in einem Bericht zusammengefasst, der die Implikationen für Praxis und Forschung diskutiert und Empfehlungen für die Nutzung des Deutschlandatlas in der Immobilienmarktanalyse gibt.)
+\section*{Deployment}
+Um das Ergebnis der Arbeit zu visualisieren, wurden die Ergebnisse in verständlicher Form aufbereitet. Im ersten Schritt wurden die Vorhersagen der Immobilienpreise auf einer Karte visualisiert, um regionale Unterschiede und Trends zu verdeutlichen. Im zweiten Schritt wurden die wichtigsten Einflussfaktoren auf die Immobilienpreise in Form von Diagrammen und Tabellen dargestellt. (Diese Ergebnisse wurden in einem Bericht zusammengefasst, der die Implikationen für Praxis und Forschung diskutiert und Empfehlungen für die Nutzung des Deutschlandatlas in der Immobilienmarktanalyse gibt.)
